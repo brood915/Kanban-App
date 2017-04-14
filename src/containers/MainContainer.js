@@ -1,10 +1,26 @@
 import React from 'react';
-import Main from '../components/Main'
+import ModalContainer from './ModalContainer';
+import TaskContainer from './TaskContainer';
 
-function MainContainer() {
-    return (
-    	<div><Main /></div>
-    )
-}
+class MainContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    		modal: 'off',
+    		toDo: {},
+    		progress: {},
+    		done: {}
+    	}
+	}
+	render() {
+		let ha = 'hahaha'
+		return (<div>
+			<ModalContainer/>
+			<TaskContainer/>
+			</div>);
+
+			}
+	}
+
 
 export default MainContainer;
