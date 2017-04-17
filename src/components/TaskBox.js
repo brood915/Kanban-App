@@ -4,8 +4,9 @@ import TaskItem from './Taskitem';
 
 
 function TaskBox(props) {
+	const border = {border: props.border }
     return (
-    	<div className="taskBox">
+    	<div className="taskBox" style = {border}>
     		<TaskItem />
     	</div>
     );
