@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-function TaskButtons(props) {
+function TaskButton(props) {
     return (
     	<div>
     		I am TaskButtons
@@ -10,8 +10,8 @@ function TaskButtons(props) {
     );
 }
 
-TaskButtons.propTypes = {
+TaskButton.propTypes = {
 
 }
 
-export default TaskButtons;
+export default TaskButton;

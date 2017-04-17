@@ -5,7 +5,7 @@ import TaskItem from './Taskitem';
 
 function TaskBox(props) {
     return (
-    	<div>
+    	<div className="taskBox">
     		<TaskItem />
     	</div>
     );

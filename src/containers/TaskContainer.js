@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TaskBox from '../components/TaskBox';
-import TaskButtons from '../components/TaskButtons';
 
 function TaskContainer(props) {
     return (
-    	<div>
-    	<TaskBox />
-    	<TaskButtons />
+    	<div id="taskContainer">
+    	<TaskBox id="ready"/>
+    	<TaskBox id="progress"/>
+    	<TaskBox id="done"/>
     	</div>
     );
 }
