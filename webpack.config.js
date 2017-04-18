@@ -22,12 +22,16 @@ module.exports = {
       { // regular css files
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          use: 'css-loader?importLoaders=1',
-        }),
+                  fallback:'style-loader',
+                  use: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+                }),
       },
       { // sass / scss loader for webpack
         test: /\.(sass|scss)$/,
-        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+        use: ExtractTextPlugin.extract({
+                  fallback:'style-loader',
+                  use: ['css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]','sass-loader']
+                }),
       }
     ]
   },
