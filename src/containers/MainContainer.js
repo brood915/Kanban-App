@@ -1,7 +1,6 @@
 import React from 'react';
-import ModalContainer from './ModalContainer';
+import Modal from '../components/Modal';
 import TaskContainer from './TaskContainer';
-import TaskButton from '../components/TaskButton';
 import styles from '../style/main.scss';
 
 class MainContainer extends React.Component {
@@ -17,7 +16,7 @@ class MainContainer extends React.Component {
 	render() {
 		return (<div className = {styles.mainContainer}>
 			<TaskContainer/>
-			<TaskButton />
+			<Modal />
 			</div>);
 
 			}
