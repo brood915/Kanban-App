@@ -8,6 +8,7 @@ function TaskBox(props) {
     return (
     	<div className={styles.taskBox} style = {border}>
     		{props.children}
+    		<TaskItem>taskItem</TaskItem>
     	</div>
     );
 }

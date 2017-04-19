@@ -4,61 +4,34 @@ body, html {
 margin: 0;
 padding: 0;
 background-color: $light-gray;
-height: 100%;
 }
-
-div:first-child, .mainContainer, .taskContainer {
-    min-height: 100%;
-}
-
-@mixin center () {
-	display: -webkit-flex;
-	display: flex;
-    -webkit-justify-content: center;
-    justify-content: center;
-    align-items: center;
-    -webkit-justify-content: center;
-}
-
 
 .taskContainer {
+    display: flex;
+    display: -webkit-flex;
     -webkit-flex-direction: column;
-    flex-direction: column;        
-    }
-
-.taskBox {
-    width: 80% !important;
-    min-height: 100px;
-    }
-.button {
-    height: 10px !important;
-    }
-  
-
-@media screen and (min-width: 651px) {
-.mainContainer {
-	@include center();
-}
-
-.taskContainer {
-	@include center();
-	-webkit-flex-direction: row;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
-
+    height: 100%;
+    padding: 10px;
+    padding-top: 0px;
+    .taskBox:last-child {
+    margin-bottom: 20px;
+    }
 }
 
 
 .taskBox {
-	width: 33%;
-	height: 70%;
-	margin: 10px;
-	background-color: white;
-	padding-left: 10px;
+    width: 90%;
+    min-height: 200px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
 }
 
 .arrowDown {
-	border: solid black;
+    border: solid black;
     border-width: 0 2px 4px 0;
     display: inline-block;
     padding: 3px;
@@ -69,8 +42,25 @@ div:first-child, .mainContainer, .taskContainer {
 
 
 .button {
-    position: absolute;
-    top: 30px;
-    height: 10px !important;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    color: red !important;
 }
+
+@media screen and (min-width: 768px) {
+    .taskContainer {
+        -webkit-flex-direction: row;
+        flex-direction: row;
+    }
+
+    .taskBox:not(:first-child) {
+        margin-left: 15px;
+    }
+
+    .taskBox {
+        width: 33%;
+        min-height: 300px;
+    }
+   
 }
