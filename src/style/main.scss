@@ -60,10 +60,19 @@ form {
         margin: 5px;
     }
     .modalBtn {
-    width: 60px;
+    cursor: pointer;
+    background-color: #d9534f;
+    border-radius: 30%;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
     margin: auto;
+    color: white;
+    text-align: center;
+        &:hover {
+        background-color: #c9302c;
+        }
     }
-
 }
 
 @media screen and (min-width: 768px) {
