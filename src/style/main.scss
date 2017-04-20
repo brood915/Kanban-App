@@ -41,11 +41,38 @@ background-color: $light-gray;
 }
 
 
-.button {
+.modal {
     display: flex;
+    -webkit-display: flex;
+    -webkit-justify-content: center;
     justify-content: center;
     margin-top: 10px;
     color: red !important;
+}
+
+form {
+    display: flex;
+    -webkit-display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    input {
+        padding: 5px;
+        margin: 5px;
+    }
+    .modalBtn {
+    cursor: pointer;
+    background-color: #d9534f;
+    border-radius: 30%;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    color: white;
+    text-align: center;
+        &:hover {
+        background-color: #c9302c;
+        }
+    }
 }
 
 @media screen and (min-width: 768px) {

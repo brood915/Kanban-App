@@ -9,20 +9,30 @@ class ModalContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    	showModal: false
+    	showModal: false,
+      input: []
     	}
 	}
 
 	close() {
 		this.setState({showModal: false});
+    this.setState({input: []});
 	}
 
 	open() {
 		this.setState({showModal: true});
 	}
 
+  addInput () {
+    const input = this.state.input;
+    input.push(<input type = 'text' placeholder="Task" />);
+    this.setState({input});
+
+  }
+
+
 	render() {
-      return(<div className ={styles.button}>
+      return(<div className ={styles.modal}>
         <Button
           bsStyle="primary"
           bsSize="large"
@@ -36,10 +46,17 @@ class ModalContainer extends React.Component {
             <Modal.Title>Add your task</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <p>test</p>
+          <form>
+            <input type = 'text' placeholder="Name" />
+            <input type = 'text' placeholder="Explanation" />
+            <input type = 'text' placeholder="Task" />
+            {this.state.input.map(function(each){return each})}
+            <div className={styles.modalBtn} onClick={this.addInput.bind(this)}>+</div>
+          </form>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.close.bind(this)}>Close</Button>
+            <Button bsStyle='primary'>Add</Button>
+            <Button bsStyle='primary' onClick={this.close.bind(this)}>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>)
