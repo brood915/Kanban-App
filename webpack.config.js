@@ -23,14 +23,14 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
                   fallback:'style-loader',
-                  use: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+                  use: ['css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'postcss-loader']
                 }),
       },
       { // sass / scss loader for webpack
         test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
                   fallback:'style-loader',
-                  use: ['css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]','sass-loader']
+                  use: ['css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]','sass-loader', 'postcss-loader']
                 }),
       }
     ]
