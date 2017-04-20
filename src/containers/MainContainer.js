@@ -7,7 +7,6 @@ class MainContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    		modal: 'off',
     		toDo: {},
     		progress: {},
     		done: {}
