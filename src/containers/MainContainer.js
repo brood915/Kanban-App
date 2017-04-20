@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../components/Modal';
+import ModalContainer from './ModalContainer';
 import TaskContainer from './TaskContainer';
 import styles from '../style/main.scss';
 import TaskButton from '../components/TaskButton';
@@ -16,9 +16,8 @@ class MainContainer extends React.Component {
 	}
 	render() {
 		return (<div className = {styles.mainContainer}>
-			<TaskButton className={styles.btn}/>
+			<ModalContainer />
 			<TaskContainer/>
-			<Modal />
 			</div>);
 
 			}
