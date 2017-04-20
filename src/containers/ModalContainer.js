@@ -22,7 +22,7 @@ class ModalContainer extends React.Component {
 	}
 
 	render() {
-      return(<div className ={styles.button}>
+      return(<div className ={styles.modal}>
         <Button
           bsStyle="primary"
           bsSize="large"
@@ -36,10 +36,15 @@ class ModalContainer extends React.Component {
             <Modal.Title>Add your task</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <p>test</p>
+          <form>
+            <input type = 'text' placeholder="Name"></input>
+            <input type = 'text' placeholder="Explanation"></input>
+            <input type = 'text' placeholder="Task"></input>
+            <Button bsStyle='primary' className={styles.modalBtn}>Add</Button>
+          </form>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.close.bind(this)}>Close</Button>
+            <Button bsStyle = 'primary' onClick={this.close.bind(this)}>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>)

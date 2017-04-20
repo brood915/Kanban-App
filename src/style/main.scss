@@ -41,11 +41,29 @@ background-color: $light-gray;
 }
 
 
-.button {
+.modal {
     display: flex;
+    -webkit-display: flex;
+    -webkit-justify-content: center;
     justify-content: center;
     margin-top: 10px;
     color: red !important;
+}
+
+form {
+    display: flex;
+    -webkit-display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    input {
+        padding: 5px;
+        margin: 5px;
+    }
+    .modalBtn {
+    width: 60px;
+    margin: auto;
+    }
+
 }
 
 @media screen and (min-width: 768px) {
