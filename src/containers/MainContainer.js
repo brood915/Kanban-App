@@ -2,7 +2,6 @@ import React from 'react';
 import ModalContainer from './ModalContainer';
 import TaskContainer from './TaskContainer';
 import styles from '../style/main.scss';
-import TaskButton from '../components/TaskButton';
 
 class MainContainer extends React.Component {
   constructor(props) {
