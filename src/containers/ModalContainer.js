@@ -25,11 +25,17 @@ class ModalContainer extends React.Component {
 
   addInput () {
     const input = this.state.input;
-    input.push(<input type = 'text' placeholder="Task" />);
+    const key = input.length;
+    input.push(<input key = {key.toString()} type = 'text' placeholder="Task"/>);
+    this.setState({input});
+  }
+
+  removeInput (e) {
+    const input = this.state.input;
+    input.pop();
     this.setState({input});
 
   }
-
 
 	render() {
       return(<div className ={styles.modal}>
@@ -51,7 +57,12 @@ class ModalContainer extends React.Component {
             <input type = 'text' placeholder="Explanation" />
             <input type = 'text' placeholder="Task" />
             {this.state.input.map(function(each){return each})}
-            <div className={styles.modalBtn} onClick={this.addInput.bind(this)}>+</div>
+            <section>
+            <span className={styles.modalBtn} onClick={this.addInput.bind(this)}>+</span>
+            {this.state.input.length !== 0 &&
+               <span className={styles.modalBtn} onClick={this.removeInput.bind(this)}>-</span>
+            }
+            </section>
           </form>
           </Modal.Body>
           <Modal.Footer>
