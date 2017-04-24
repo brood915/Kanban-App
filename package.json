@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack -p",
     "start": "webpack-dev-server",
-    "test": "mocha --require babel-register --require ignore-styles test/setup.js test/*.spec.js"
+    "test": "SET BABEL_ENV=test&&mocha --require babel-register --require ignore-styles test/setup.js test/*.spec.js"
   },
   "author": "Kevin Jang",
   "license": "ISC",
