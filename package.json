@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -p",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test": "mocha -w test/setup.js test/*.spec.js"
   },
   "author": "Kevin Jang",
   "license": "ISC",
