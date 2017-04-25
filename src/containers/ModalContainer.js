@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../style/main.scss';
 import { Modal } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
@@ -38,11 +37,12 @@ class ModalContainer extends React.Component {
   }
 
 	render() {
-      return(<div className ={styles.modal}>
+      return(<div className = "modal">
         <Button
           bsStyle="primary"
           bsSize="large"
           onClick={this.open.bind(this)}
+          className = "openBtn"
         >
           Add
         </Button>
@@ -58,9 +58,9 @@ class ModalContainer extends React.Component {
             <input type = 'text' placeholder="Task" />
             {this.state.input.map(function(each){return each})}
             <section>
-            <span className={styles.modalBtn} onClick={this.addInput.bind(this)}>+</span>
+            <span className="modalBtn" onClick={this.addInput.bind(this)}>+</span>
             {this.state.input.length !== 0 &&
-               <span className={styles.modalBtn} onClick={this.removeInput.bind(this)}>-</span>
+               <span className="modalBtn" onClick={this.removeInput.bind(this)}>-</span>
             }
             </section>
           </form>
