@@ -28,14 +28,15 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
                   fallback:'style-loader',
-                  use: ['css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'postcss-loader']
+                  use: ['css-loader', 'postcss-loader']
                 }),
+        //'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]' for css modules
       },
       { // sass / scss loader for webpack
         test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
                   fallback:'style-loader',
-                  use: ['css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]','sass-loader', 'postcss-loader']
+                  use: ['css-loader','sass-loader', 'postcss-loader']
                 }),
       }
     ]
