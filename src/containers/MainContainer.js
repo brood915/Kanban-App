@@ -8,7 +8,7 @@ class MainContainer extends React.Component {
     super(props);
     this.state = {
     		toDo: {},
-    		progress: {},
+    		inProgress: {},
     		done: {}
     	}
 	}
