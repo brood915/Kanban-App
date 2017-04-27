@@ -9,8 +9,11 @@ class ModalContainer extends React.Component {
     super(props);
     this.state = {
     	showModal: false,
-      input: []
+      input: [],
+      tasks: {}
     	}
+
+      this.handleInput = this.handleInput.bind(this);
 	}
 
 	close() {
@@ -29,11 +32,19 @@ class ModalContainer extends React.Component {
     this.setState({input});
   }
 
-  removeInput (e) {
+  removeInput () {
     const input = this.state.input;
     input.pop();
     this.setState({input});
 
+  }
+
+  handleInput (e) {
+    const tasks = this.state.tasks;
+    tasks[e.target.name]= e.target.value;
+    this.setState({
+      tasks
+    }, () => console.log(this.state.tasks));
   }
 
 	render() {
@@ -53,9 +64,9 @@ class ModalContainer extends React.Component {
           </Modal.Header>
           <Modal.Body>
           <form>
-            <input type = 'text' name="name" placeholder="Name" />
-            <input type = 'text' name="exp" placeholder="Explanation" />
-            <input type = 'text' name="task" placeholder="Task" />
+            <input onChange ={this.handleInput} type = 'text' name="name" placeholder="Name" />
+            <input onChange ={this.handleInput} type = 'text' name="exp" placeholder="Explanation" />
+            <input onChange ={this.handleInput} type = 'text' name="task" placeholder="Task" />
             {this.state.input.map(function(each){return each})}
             <section>
             <span className="modalBtn" onClick={this.addInput.bind(this)}>+</span>
@@ -78,16 +89,5 @@ ModalContainer.propTypes = {
 
 }
 
-const mapDispatchToProps = (dispatch) => {
-   return {
 
-   }
-};
-
-const mapStateToProps = (state) => {
-   return {
-
-   };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ModalContainer);
+export default connect()(ModalContainer);
