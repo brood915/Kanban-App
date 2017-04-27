@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-
+import { connect } from 'react-redux';
 
 class ModalContainer extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class ModalContainer extends React.Component {
   addInput () {
     const input = this.state.input;
     const key = input.length;
-    input.push(<input key = {key.toString()} type = 'text' placeholder="Task"/>);
+    input.push(<input key = {key.toString()} name = {"task" + key} type = 'text' placeholder="Task"/>);
     this.setState({input});
   }
 
@@ -53,9 +53,9 @@ class ModalContainer extends React.Component {
           </Modal.Header>
           <Modal.Body>
           <form>
-            <input type = 'text' placeholder="Name" />
-            <input type = 'text' placeholder="Explanation" />
-            <input type = 'text' placeholder="Task" />
+            <input type = 'text' name="name" placeholder="Name" />
+            <input type = 'text' name="exp" placeholder="Explanation" />
+            <input type = 'text' name="task" placeholder="Task" />
             {this.state.input.map(function(each){return each})}
             <section>
             <span className="modalBtn" onClick={this.addInput.bind(this)}>+</span>
@@ -78,4 +78,16 @@ ModalContainer.propTypes = {
 
 }
 
-export default ModalContainer;
+const mapDispatchToProps = (dispatch) => {
+   return {
+
+   }
+};
+
+const mapStateToProps = (state) => {
+   return {
+
+   };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModalContainer);

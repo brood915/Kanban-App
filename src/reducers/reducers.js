@@ -7,7 +7,7 @@ const initialState = {
 //managing tasks. adding,removing, and moving
 function manageTasks(state = initialState, action) {
   switch (action.type) {
-    case ADD_TASK:
+    case 'ADD_TASK':
       return Object.assign({}, state, {
         todos: [
           ...state.tasks,

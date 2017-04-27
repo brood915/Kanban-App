@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TaskBox from '../components/TaskBox';
-
+import { connect } from 'react-redux';
 
 function TaskContainer(props) {
     return (
@@ -17,4 +17,17 @@ TaskContainer.propTypes = {
 
 }
 
-export default TaskContainer;
+const mapDispatchToProps = (dispatch) => {
+   return {
+
+   }
+};
+
+const mapStateToProps = (state) => {
+   return {
+
+   };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskContainer);
