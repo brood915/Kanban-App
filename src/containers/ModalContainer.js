@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { addTask } from '../actions/actions'
 
 class ModalContainer extends React.Component {
   constructor(props) {
@@ -19,7 +20,15 @@ class ModalContainer extends React.Component {
 	close() {
 		this.setState({showModal: false});
     this.setState({input: []});
+    this.setState({tasks: {}});
 	}
+
+  addTask () {
+    this.props.dispatch(addTask(this.state.tasks));
+    this.close();
+    this.props.getState();
+
+  }
 
 	open() {
 		this.setState({showModal: true});
@@ -77,7 +86,7 @@ class ModalContainer extends React.Component {
           </form>
           </Modal.Body>
           <Modal.Footer>
-            <Button bsStyle='primary'>Add</Button>
+            <Button bsStyle='primary' onClick={this.addTask.bind(this)}>Add</Button>
             <Button bsStyle='primary' onClick={this.close.bind(this)}>Close</Button>
           </Modal.Footer>
         </Modal>
