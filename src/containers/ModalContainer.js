@@ -2,21 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-
+import { connect } from 'react-redux';
+import { addTask } from '../actions/actions'
 
 class ModalContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
     	showModal: false,
-      input: []
+      input: [],
+      tasks: {}
     	}
+
+      this.handleInput = this.handleInput.bind(this);
 	}
 
 	close() {
 		this.setState({showModal: false});
     this.setState({input: []});
+    this.setState({tasks: {}});
 	}
+
+  addTask () {
+    this.props.dispatch(addTask(this.state.tasks));
+    this.close();
+    this.props.getState();
+
+  }
 
 	open() {
 		this.setState({showModal: true});
@@ -25,15 +37,23 @@ class ModalContainer extends React.Component {
   addInput () {
     const input = this.state.input;
     const key = input.length;
-    input.push(<input key = {key.toString()} type = 'text' placeholder="Task"/>);
+    input.push(<input key = {key.toString()} name = {"task" + key} type = 'text' placeholder="Task"/>);
     this.setState({input});
   }
 
-  removeInput (e) {
+  removeInput () {
     const input = this.state.input;
     input.pop();
     this.setState({input});
 
+  }
+
+  handleInput (e) {
+    const tasks = this.state.tasks;
+    tasks[e.target.name]= e.target.value;
+    this.setState({
+      tasks
+    }, () => console.log(this.state.tasks));
   }
 
 	render() {
@@ -53,9 +73,9 @@ class ModalContainer extends React.Component {
           </Modal.Header>
           <Modal.Body>
           <form>
-            <input type = 'text' placeholder="Name" />
-            <input type = 'text' placeholder="Explanation" />
-            <input type = 'text' placeholder="Task" />
+            <input onChange ={this.handleInput} type = 'text' name="name" placeholder="Name" />
+            <input onChange ={this.handleInput} type = 'text' name="exp" placeholder="Explanation" />
+            <input onChange ={this.handleInput} type = 'text' name="task" placeholder="Task" />
             {this.state.input.map(function(each){return each})}
             <section>
             <span className="modalBtn" onClick={this.addInput.bind(this)}>+</span>
@@ -66,7 +86,7 @@ class ModalContainer extends React.Component {
           </form>
           </Modal.Body>
           <Modal.Footer>
-            <Button bsStyle='primary'>Add</Button>
+            <Button bsStyle='primary' onClick={this.addTask.bind(this)}>Add</Button>
             <Button bsStyle='primary' onClick={this.close.bind(this)}>Close</Button>
           </Modal.Footer>
         </Modal>
@@ -78,4 +98,5 @@ ModalContainer.propTypes = {
 
 }
 
-export default ModalContainer;
+
+export default connect()(ModalContainer);

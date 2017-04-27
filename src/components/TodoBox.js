@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TaskItem from './Taskitem';
 
-function TaskBox(props) {
+function TodoBox(props) {
 	const border = {borderLeft: props.border}
     return (
     	<div className="taskBox" style = {border}>
@@ -12,8 +12,8 @@ function TaskBox(props) {
     );
 }
 
-TaskBox.propTypes = {
+TodoBox.propTypes = {
 
 }
 
-export default TaskBox;
+export default TodoBox;
