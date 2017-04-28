@@ -1,16 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TaskItem from './Taskitem';
+
 
 function TodoBox(props) {
 	const border = {borderLeft: props.border}
     return (
     	<div className="taskBox" style = {border}>
-    		{props.children}
-    		<TaskItem>taskItem</TaskItem>
+    	{props.children}
+    		{props.tasks.map((each)=>(
+    			<div key={props.tasks.indexOf(each)}>
+    				<div>{each.task.name}</div>
+    				<div>{each.task.task}</div>
+    			</div>))}
     	</div>
     );
 }
+
+
+
 
 TodoBox.propTypes = {
 
