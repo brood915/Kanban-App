@@ -1,16 +1,46 @@
+/*****
+mixins,
+variables
+******/
 $light-gray: #e4e7ec;
+@mixin redBtn () {
+    cursor: pointer;
+        background-color: #d9534f;
+        border-radius: 30%;
+        padding: 5px;
+        width: 30px;
+        height: 30px;
+    color: white;
+    text-align: center;
+            &:hover {
+            background-color: #c9302c;
+            }   
+}
 
+
+
+
+/*****
+general
+style
+******/
 body, html {
 margin: 0;
 padding: 0;
 background-color: $light-gray;
 }
 
+
+
+
+
+/*****
+taskBox
+style
+******/
 .taskContainer {
     display: flex;
-    position: relative;
     flex-direction: column;
-    top: 50px;
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -29,26 +59,41 @@ background-color: $light-gray;
     padding: 20px;
 }
 
-.arrowDown {
-    border: solid black;
-    border-width: 0 2px 4px 0;
-    display: inline-block;
-    padding: 3px;
-    transform: rotate(45deg);
-    margin-right: 3px;
-}
-
-
-.modal {
+.tasks {
+    border: 1px #f0f5f5 solid;
+    padding: 10px;
     display: flex;
+    margin: 5px;
     justify-content: center;
-    margin-top: 10px;
-    .openBtn {
-        position: relative;
-        height: 50px;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+    .remBtn {
+        position: absolute;
+        @include redBtn();
+        right:0;
+        top:0;
+    }
+    .btn {
+        width: 60px;
+        margin: auto;
+    }
+    .taskName {
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .task {
+        margin: auto;
     }
 }
 
+
+
+
+
+/*****
+modal
+******/
 form {
     display: flex;
     flex-direction: column;
@@ -62,24 +107,45 @@ form {
     display: flex;
     flex-direction: row;
         .modalBtn {
-        cursor: pointer;
-        background-color: #d9534f;
-        border-radius: 30%;
-        padding: 5px;
-        width: 30px;
-        height: 30px;
+        @include redBtn();
         margin: auto;
         margin-top: 5px;
-        color: white;
-        text-align: center;
-            &:hover {
-            background-color: #c9302c;
-            }
         }
     }
 }
 
 
+
+
+
+/*****
+others
+******/
+.arrowDown {
+    border: solid black;
+    border-width: 0 2px 4px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    margin-right: 3px;
+}
+
+.openBtn {
+    position: relative;
+    left: 47%;
+    margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+/*****
+media queries
+******/
 @media screen and (min-width: 768px) {
     .taskContainer {
         flex-direction: row;

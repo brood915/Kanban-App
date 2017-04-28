@@ -30,7 +30,7 @@ class ModalContainer extends React.Component {
 
 	open() {
 		this.setState({showModal: true});
-    console.log(this.props.tasks);
+    console.log(this.props);
 	}
 
   addInput () {
@@ -52,11 +52,11 @@ class ModalContainer extends React.Component {
     tasks[e.target.name]= e.target.value;
     this.setState({
       tasks
-    }, () => console.log(this.state.tasks));
+    });
   }
 
 	render() {
-      return(<div className = "modal">
+      return(<div>
         <Button
           bsStyle="primary"
           bsSize="large"
@@ -65,7 +65,6 @@ class ModalContainer extends React.Component {
         >
           Add
         </Button>
-
         <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
           <Modal.Header closeButton>
             <Modal.Title>Add your task</Modal.Title>
@@ -73,7 +72,6 @@ class ModalContainer extends React.Component {
           <Modal.Body>
           <form>
             <input onChange ={this.handleInput} type = 'text' name="name" placeholder="Name" required/>
-            <input onChange ={this.handleInput} type = 'text' name="exp" placeholder="Explanation" required/>
             <input onChange ={this.handleInput} type = 'text' name="task" placeholder="Task" required/>
             {this.state.input.map(function(each){return each})}
             <section>
@@ -99,7 +97,7 @@ ModalContainer.propTypes = {
 
 const mapStateToProps = (state) => {
    return {
-    tasks: state.tasks
+    tasks: state.tasks.tasks
    };
 };
 

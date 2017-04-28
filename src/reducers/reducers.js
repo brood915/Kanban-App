@@ -12,9 +12,21 @@ function tasks (state = initialState, action) {
         tasks: [
           ...state.tasks,
           {
-            task: action.task
+            task: action.task,
+            stage: 'ready'
           }
         ]
+      })
+    case 'START_TASK':
+      return Object.assign({}, state, {
+        tasks: state.tasks.map((each, index) => {
+      if (index === action.index) {
+        return Object.assign({}, each, {
+          stage: 'in-progress'
+        })
+      }
+      return each
+    })
       })
 
     default:
