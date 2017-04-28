@@ -4,6 +4,9 @@ import TodoBox from '../components/TodoBox';
 import InProgressBox from '../components/InProgressBox';
 import CompletedBox from '../components/CompletedBox';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
+import { removeTask } from '../actions/actions'
+import { startTask } from '../actions/actions'
 
 const TaskContainer = (props) => 
    (  
@@ -16,21 +19,19 @@ const TaskContainer = (props) =>
 
 
 
-const getStage = (tasks, filter) => {
-  switch (filter) {
-    case 'TO_DO':
-      return tasks
-    case 'IN_PROGRESS':
-      return tasks.filter(t => t.completed)
-    case 'COMPLETED':
-      return tasks.filter(t => !t.completed)
-  }
-}
+// const getStage = (tasks, filter) => {
+//   switch (filter) {
+//     case 'TO_DO':
+//       return tasks
+//     case 'IN_PROGRESS':
+//       return tasks.filter(t => t.completed)
+//     case 'COMPLETED':
+//       return tasks.filter(t => !t.completed)
+//   }
+// }
 
 const mapDispatchToProps = (dispatch) => {
-   return {
-
-   }
+   return bindActionCreators({ removeTask, startTask }, dispatch); 
 };
 
 const mapStateToProps = (state) => {

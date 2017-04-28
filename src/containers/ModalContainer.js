@@ -30,6 +30,7 @@ class ModalContainer extends React.Component {
 
 	open() {
 		this.setState({showModal: true});
+    console.log(this.props);
 	}
 
   addInput () {
@@ -51,7 +52,7 @@ class ModalContainer extends React.Component {
     tasks[e.target.name]= e.target.value;
     this.setState({
       tasks
-    }, () => console.log(this.state.tasks));
+    });
   }
 
 	render() {

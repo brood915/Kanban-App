@@ -8,7 +8,9 @@ function TodoBox(props) {
     return (
     	<div className="taskBox" style = {border}>
 	    	{props.children}
-	    	{props.tasks.map((each)=>(
+	    	{props.tasks
+	    	.filter((each)=>(each.stage === 'ready'))
+	    	.map((each)=>(
 	    	<div  className="tasks" key={props.tasks.indexOf(each)}>
 		    	<Tasks tasks={each}/>
 		    	<Button bsStyle='primary'>Start</Button>
