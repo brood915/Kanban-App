@@ -5,10 +5,10 @@ import InProgressBox from '../components/InProgressBox';
 import CompletedBox from '../components/CompletedBox';
 import { connect } from 'react-redux';
 
-const TaskContainer = () => 
-   (
+const TaskContainer = (props) => 
+   (  
     	<div className="taskContainer">
-    	<TodoBox border="#47B8E0 7px solid"><h4><span className="arrowDown"></span>Ready</h4></TodoBox>
+    	<TodoBox onClick = {this.ha} tasks = {props.tasks} border="#47B8E0 7px solid"><h4><span className="arrowDown"></span>Ready</h4></TodoBox>
     	<InProgressBox border="#fbd14b 7px solid"><h4><span className="arrowDown"></span>In-Progress</h4></InProgressBox>
     	<CompletedBox border="#FA5D29 7px solid"><h4><span className="arrowDown"></span>Done</h4></CompletedBox>
     	</div>
@@ -35,6 +35,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
    return {
+    tasks: state.tasks
    };
 };
 

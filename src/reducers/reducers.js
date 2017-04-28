@@ -5,7 +5,7 @@ const initialState = {
 }
 
 //managing tasks. adding,removing, and moving
-function manageTasks(state = initialState, action) {
+function tasks (state = initialState, action) {
   switch (action.type) {
     case 'ADD_TASK':
       return Object.assign({}, state, {
@@ -25,7 +25,7 @@ function manageTasks(state = initialState, action) {
 
 
 const kanbanApp = combineReducers({
-  manageTasks
+  tasks
 })
 
 export default kanbanApp;
