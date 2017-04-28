@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 
 const Tasks = (props) => (
-	<div className="tasks">
-		<div>X</div>
-		<div>{props.tasks.task.name}</div>
-		<div>{props.tasks.task.task}</div>
+	<div>
+		<div className='remBtn'>X</div>
+		<div className='taskName'>{props.tasks.task.name}</div>
+		<div className='task'>{props.tasks.task.task}</div>
     </div>	
 	);
 

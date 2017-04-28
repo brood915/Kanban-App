@@ -55,7 +55,7 @@ class ModalContainer extends React.Component {
   }
 
 	render() {
-      return(<div className = "modal">
+      return(<div>
         <Button
           bsStyle="primary"
           bsSize="large"
@@ -64,7 +64,6 @@ class ModalContainer extends React.Component {
         >
           Add
         </Button>
-
         <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
           <Modal.Header closeButton>
             <Modal.Title>Add your task</Modal.Title>
