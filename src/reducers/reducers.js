@@ -4,6 +4,8 @@ const initialState = {
 	tasks:[]
 }
 
+let index = 0;
+
 //managing tasks. adding,removing, and moving
 function tasks (state = initialState, action) {
   switch (action.type) {
@@ -13,7 +15,8 @@ function tasks (state = initialState, action) {
           ...state.tasks,
           {
             task: action.task,
-            stage: 'ready'
+            stage: 'ready',
+            index: index++
           }
         ]
       })
