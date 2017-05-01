@@ -5,11 +5,7 @@ import { Button } from 'react-bootstrap';
 
 
 function TodoBox(props) {
-    function handleOnClick(e) {
-        let index = e.target.getAttribute('id');
-        props.startTask(index);
-        console.log(index);
-    }		
+	
 	const border = {borderLeft: props.border};
     return (
     	<div className="taskBox" style = {border}>
@@ -19,7 +15,7 @@ function TodoBox(props) {
 	    	.map((each, index)=>(
 	    	<div  className="tasks" key={index}>
 		    	<Tasks tasks={each}/>
-		    	<Button id = {index} onClick = {handleOnClick} bsStyle='primary'>Start</Button>
+		    	<Button onClick = {()=>props.startTask(each.index)} bsStyle='primary'>Start</Button>
 		    </div>))}
     	</div>
     );
