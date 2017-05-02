@@ -5,11 +5,7 @@ import { Button } from 'react-bootstrap';
 
 
 function TodoBox(props) {
-    function handleOnClick(e) {
-        let index = e.target.getAttribute('id');
-        props.startTask(index);
-        console.log(index);
-    }		
+	
 	const border = {borderLeft: props.border};
     return (
     	<div className="taskBox" style = {border}>
@@ -18,8 +14,8 @@ function TodoBox(props) {
 	    	.filter((each)=>(each.stage === 'ready'))
 	    	.map((each, index)=>(
 	    	<div  className="tasks" key={index}>
-		    	<Tasks tasks={each}/>
-		    	<Button id = {index} onClick = {handleOnClick} bsStyle='primary'>Start</Button>
+		    	<Tasks index = {index} removeTask = {props.removeTask} tasks={each}/>
+		    	<Button onClick = {()=>props.startTask(index)} bsStyle='primary'>Start</Button>
 		    </div>))}
     	</div>
     );
@@ -30,7 +26,8 @@ function TodoBox(props) {
 
 TodoBox.propTypes = {
 	 startTask: PropTypes.func.isRequired,
-	 tasks: PropTypes.array.isRequired
+	 tasks: PropTypes.array.isRequired,
+	 removeTask: PropTypes.func.isRequired
 }
 
 export default TodoBox;

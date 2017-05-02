@@ -20,6 +20,10 @@ function tasks (state = initialState, action) {
           }
         ]
       })
+    case 'REMOVE_TASK':
+      return Object.assign({}, state, {
+        tasks: [...state.tasks.slice(0, action.index), ...state.tasks.slice(action.index + 1) ]
+      })      
     case 'START_TASK':
       return Object.assign({}, state, {
         tasks: state.tasks.map((each, index) => {
