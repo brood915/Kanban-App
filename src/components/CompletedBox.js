@@ -12,15 +12,16 @@ function CompletedBox(props) {
 	    	.filter((each)=>(each.stage === 'completed'))
 	    	.map((each, index)=>(
 	    	<div  className="tasks" key={index}>
-		    	<Tasks tasks={each}/>
-		    	<Button bsStyle='danger'>Remove</Button>
+		    	<Tasks index = {each.index} removeTask = {props.removeTask} tasks={each}/>
+		    	<Button className='completedBtn' onClick = {()=>props.removeTask(each.index)} bsStyle='danger'>Remove</Button>
 		    </div>))}
     	</div>
     );
 }
 
 CompletedBox.propTypes = {
-
+	 tasks: PropTypes.array.isRequired,
+	 removeTask: PropTypes.func.isRequired
 }
 
 export default CompletedBox;

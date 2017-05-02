@@ -13,8 +13,6 @@ class ModalContainer extends React.Component {
       input: [],
       tasks: {}
     	}
-
-      this.handleInput = this.handleInput.bind(this);
 	}
 
 	close() {
@@ -30,22 +28,7 @@ class ModalContainer extends React.Component {
 
 	open() {
 		this.setState({showModal: true});
-    console.log(this.props);
 	}
-
-  addInput () {
-    const input = this.state.input;
-    const key = input.length;
-    input.push(<input key = {key.toString()} name = {"task" + key} type = 'text' placeholder="Task"/>);
-    this.setState({input});
-  }
-
-  removeInput () {
-    const input = this.state.input;
-    input.pop();
-    this.setState({input});
-
-  }
 
   handleInput (e) {
     const tasks = this.state.tasks;
@@ -71,15 +54,8 @@ class ModalContainer extends React.Component {
           </Modal.Header>
           <Modal.Body>
           <form>
-            <input onChange ={this.handleInput} type = 'text' name="name" placeholder="Name" required/>
-            <input onChange ={this.handleInput} type = 'text' name="task" placeholder="Task" required/>
-            {this.state.input.map(function(each){return each})}
-            <section>
-            <span className="modalBtn" onClick={this.addInput.bind(this)}>+</span>
-            {this.state.input.length !== 0 &&
-               <span className="modalBtn" onClick={this.removeInput.bind(this)}>-</span>
-            }
-            </section>
+            <input onChange ={this.handleInput.bind(this)} type = 'text' name="name" placeholder="Name" required/>
+            <input onChange ={this.handleInput.bind(this)} type = 'text' name="task" placeholder="Task" required/>
           </form>
           </Modal.Body>
           <Modal.Footer>
@@ -92,7 +68,7 @@ class ModalContainer extends React.Component {
 }
 
 ModalContainer.propTypes = {
-
+  dispatch: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {

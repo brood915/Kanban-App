@@ -20,10 +20,14 @@ function tasks (state = initialState, action) {
           }
         ]
       })
+    case 'REMOVE_TASK':
+      return Object.assign({}, state, {
+        tasks: state.tasks.filter((each)=>{return each.index !== action.index})
+      })      
     case 'START_TASK':
       return Object.assign({}, state, {
         tasks: state.tasks.map((each, index) => {
-      if (index === action.index) {
+      if (each.index === action.index) {
         return Object.assign({}, each, {
           stage: 'in-progress'
         })
@@ -31,7 +35,17 @@ function tasks (state = initialState, action) {
       return each
     })
       })
-
+    case 'FINISH_TASK':
+      return Object.assign({}, state, {
+        tasks: state.tasks.map((each, index) => {
+        if (each.index === action.index) {
+          return Object.assign({}, each, {
+            stage: 'completed'
+          })
+        }
+        return each
+        })
+      })
     default:
       return state
   }
