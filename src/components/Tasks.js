@@ -12,8 +12,7 @@ const Tasks = (props) => (
 
 Tasks.propTypes = {
 	tasks: PropTypes.object.isRequired,
-
-
+	index: PropTypes.number.isRequired
 }  		
 
  export default Tasks;

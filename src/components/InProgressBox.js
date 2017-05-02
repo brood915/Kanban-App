@@ -20,7 +20,9 @@ function InProgressBox(props) {
 }
 
 InProgressBox.propTypes = {
-
+	 finishTask: PropTypes.func.isRequired,
+	 tasks: PropTypes.array.isRequired,
+	 removeTask: PropTypes.func.isRequired
 }
 
 export default InProgressBox;

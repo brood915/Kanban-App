@@ -20,7 +20,8 @@ function CompletedBox(props) {
 }
 
 CompletedBox.propTypes = {
-
+	 tasks: PropTypes.array.isRequired,
+	 removeTask: PropTypes.func.isRequired
 }
 
 export default CompletedBox;

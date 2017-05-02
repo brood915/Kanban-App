@@ -30,7 +30,6 @@ class ModalContainer extends React.Component {
 
 	open() {
 		this.setState({showModal: true});
-    console.log(this.props);
 	}
 
   addInput () {
@@ -92,7 +91,7 @@ class ModalContainer extends React.Component {
 }
 
 ModalContainer.propTypes = {
-
+  dispatch: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {

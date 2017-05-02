@@ -32,6 +32,14 @@ const TaskContainer = (props) =>
 //   }
 // }
 
+
+TaskContainer.propTypes = {
+  removeTask: PropTypes.func.isRequired,
+  tasks: PropTypes.array.isRequired,
+  startTask: PropTypes.func.isRequired,
+  finishTask: PropTypes.func.isRequired
+} 
+
 const mapDispatchToProps = (dispatch) => {
    return bindActionCreators({ removeTask, startTask, finishTask }, dispatch); 
 };
