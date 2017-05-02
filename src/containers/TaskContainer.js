@@ -11,9 +11,9 @@ import { startTask } from '../actions/actions'
 const TaskContainer = (props) => 
    (  
     	<div className="taskContainer">
-    	<TodoBox tasks = {props.tasks} startTask = {props.startTask} border="#47B8E0 7px solid"><h4><span className="arrowDown"></span>To-Do</h4></TodoBox>
-    	<InProgressBox tasks = {props.tasks} border="#fbd14b 7px solid"><h4><span className="arrowDown"></span>In-Progress</h4></InProgressBox>
-    	<CompletedBox tasks = {props.tasks} border="#FA5D29 7px solid"><h4><span className="arrowDown"></span>Done</h4></CompletedBox>
+    	<TodoBox removeTask = {props.removeTask} tasks = {props.tasks} startTask = {props.startTask} border="#47B8E0 7px solid"><h4><span className="arrowDown"></span>To-Do</h4></TodoBox>
+    	<InProgressBox removeTask = {props.removeTask} tasks = {props.tasks} border="#fbd14b 7px solid"><h4><span className="arrowDown"></span>In-Progress</h4></InProgressBox>
+    	<CompletedBox removeTask = {props.removeTask} tasks = {props.tasks} border="#FA5D29 7px solid"><h4><span className="arrowDown"></span>Done</h4></CompletedBox>
     	</div>
     );
 

@@ -14,8 +14,8 @@ function TodoBox(props) {
 	    	.filter((each)=>(each.stage === 'ready'))
 	    	.map((each, index)=>(
 	    	<div  className="tasks" key={index}>
-		    	<Tasks tasks={each}/>
-		    	<Button onClick = {()=>props.startTask(each.index)} bsStyle='primary'>Start</Button>
+		    	<Tasks index = {index} removeTask = {props.removeTask} tasks={each}/>
+		    	<Button onClick = {()=>props.startTask(index)} bsStyle='primary'>Start</Button>
 		    </div>))}
     	</div>
     );
@@ -26,7 +26,8 @@ function TodoBox(props) {
 
 TodoBox.propTypes = {
 	 startTask: PropTypes.func.isRequired,
-	 tasks: PropTypes.array.isRequired
+	 tasks: PropTypes.array.isRequired,
+	 removeTask: PropTypes.func.isRequired
 }
 
 export default TodoBox;
