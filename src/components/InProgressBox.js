@@ -12,8 +12,8 @@ function InProgressBox(props) {
 	    	.filter((each)=>(each.stage === 'in-progress'))
 	    	.map((each, index)=>(
 	    	<div  className="tasks" key={index}>
-		    	<Tasks tasks={each}/>
-		    	<Button bsStyle='primary'>Finish</Button>
+		    	<Tasks index = {each.index} tasks={each} removeTask = {props.removeTask}/>
+		    	<Button className = 'progressBtn' onClick = {()=>props.finishTask(each.index)} bsStyle='primary'>Finish</Button>
 		    </div>))}
     	</div>
     );

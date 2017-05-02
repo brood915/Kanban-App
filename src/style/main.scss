@@ -75,8 +75,16 @@ style
         top:0;
     }
     .btn {
-        width: 60px;
         margin: auto;
+    }
+    .toDoBtn {
+        width:60px;
+    }
+    .progressBtn {
+        width: 70px;
+    }
+    .completedBtn {
+        width: 80px;
     }
     .taskName {
         font-weight: bold;

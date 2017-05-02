@@ -15,7 +15,7 @@ function TodoBox(props) {
 	    	.map((each, index)=>(
 	    	<div  className="tasks" key={index}>
 		    	<Tasks index = {each.index} removeTask = {props.removeTask} tasks={each}/>
-		    	<Button onClick = {()=>props.startTask(index)} bsStyle='primary'>Start</Button>
+		    	<Button className = 'toDoBtn' onClick = {()=>props.startTask(each.index)} bsStyle='primary'>Start</Button>
 		    </div>))}
     	</div>
     );
