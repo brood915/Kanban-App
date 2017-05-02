@@ -22,7 +22,7 @@ function tasks (state = initialState, action) {
       })
     case 'REMOVE_TASK':
       return Object.assign({}, state, {
-        tasks: [...state.tasks.slice(0, action.index), ...state.tasks.slice(action.index + 1) ]
+        tasks: state.tasks.filter((each)=>{return each.index !== action.index})
       })      
     case 'START_TASK':
       return Object.assign({}, state, {
