@@ -2,6 +2,7 @@
 
 ```
 Divided into Ready, Work-In Progress, and Completed.
+Used React with Redux.
 
 ```
 
