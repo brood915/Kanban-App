@@ -21,18 +21,6 @@ const TaskContainer = (props) =>
 
 
 
-// const getStage = (tasks, filter) => {
-//   switch (filter) {
-//     case 'TO_DO':
-//       return tasks
-//     case 'IN_PROGRESS':
-//       return tasks.filter(t => t.completed)
-//     case 'COMPLETED':
-//       return tasks.filter(t => !t.completed)
-//   }
-// }
-
-
 TaskContainer.propTypes = {
   removeTask: PropTypes.func.isRequired,
   tasks: PropTypes.array.isRequired,
